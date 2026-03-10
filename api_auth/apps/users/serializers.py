@@ -76,9 +76,6 @@ class RegisterSerializer(serializers.ModelSerializer):
 # USER SERIALIZER (para perfil y respuestas)
 
 class UserSerializer(serializers.ModelSerializer):
-    roles = RoleSerializer(many=True, read_only=True)
-    permissions = serializers.SerializerMethodField()
-
     class Meta:
         model = User
         fields = [

@@ -2,10 +2,9 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.utils import timezone
 
-
-# 
+ 
 # PERMISSION
-# 
+
 class Permission(models.Model):
     """
     Permiso individual. Ej: 'can_delete_users', 'can_view_reports'
@@ -24,9 +23,9 @@ class Permission(models.Model):
         return self.codename
 
 
-# 
+ 
 # ROLE
-# 
+ 
 class Role(models.Model):
     """
     Rol que agrupa permisos. Ej: 'admin', 'moderator', 'user'
@@ -50,9 +49,9 @@ class Role(models.Model):
         return self.name
 
 
-# 
+
 # CUSTOM USER MANAGER
-# 
+ 
 class UserManager(BaseUserManager):
 
     def create_user(self, email, username, password=None, **extra_fields):
@@ -74,9 +73,9 @@ class UserManager(BaseUserManager):
         return self.create_user(email, username, password, **extra_fields)
 
 
-# 
+ 
 # CUSTOM USER
-# 
+ 
 class User(AbstractBaseUser, PermissionsMixin):
     """
     Usuario custom. Usa email como identificador principal.
