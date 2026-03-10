@@ -42,7 +42,7 @@ en roles dinámicos, protección contra ataques de fuerza bruta y rate limiting.
 - **Framework:** Django 5 + Django REST Framework
 - **Base de datos:** PostgreSQL
 - **Autenticación:** djangorestframework-simplejwt
-- **Hashing:** BCryptSHA256 (django-bcrypt)
+- **Hashing:** bcrypt
 - **Rate limiting:** DRF Throttling
 - **Documentación:** drf-spectacular (OpenAPI/Swagger)
 - **Configuración:** python-decouple
