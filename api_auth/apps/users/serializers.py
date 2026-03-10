@@ -10,6 +10,21 @@ class PermissionSerializer(serializers.ModelSerializer):
         model = Permission
         fields = ["id", "name", "codename", "description"]
 
+#ROLES SERIALIZER       
+
+class RoleSerializer(serializers.ModelSerializer):
+    permissions = PermissionSerializer(many=True, read_only=True)
+    permission_ids = serializers.PrimaryKeyRelatedField(
+        many=True,
+        write_only=True,
+        queryset=Permission.objects.all(),
+        source="permissions",
+        required=False
+    )
+
+    class Meta:
+        model = Role
+        fields = ["id", "name", "description", "permissions", "permission_ids"]
 
 # REGISTER SERIALIZER
  
@@ -78,18 +93,3 @@ class UserSerializer(serializers.ModelSerializer):
     def get_permissions(self, obj):
         return list(obj.get_all_permissions_codenames())
 
-#ROLES SERIALIZER       
-
-class RoleSerializer(serializers.ModelSerializer):
-    permissions = PermissionSerializer(many=True, read_only=True)
-    permission_ids = serializers.PrimaryKeyRelatedField(
-        many=True,
-        write_only=True,
-        queryset=Permission.objects.all(),
-        source="permissions",
-        required=False
-    )
-
-    class Meta:
-        model = Role
-        fields = ["id", "name", "description", "permissions", "permission_ids"]
