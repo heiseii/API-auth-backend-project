@@ -115,8 +115,8 @@ api_auth/
 
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/tu-usuario/api-auth-backend.git
-cd api-auth-backend
+git clone https://github.com/tu-usuario/API-auth-backend-project.git
+cd API-auth-backend-project
 ```
 
 ### 2. Crear y activar el entorno virtual
